@@ -6,14 +6,14 @@ sort: 4
 
 # Introduction to Beego's MVC
  
-Beego uses a typical Model-View-Controller (MVC) framework. This diagram illustrates how request handling logicis processed:
+Beego uses a typical Model-View-Controller (MVC) framework. This diagram illustrates how request handling logic is processed:
 
 ![](../images/detail.png)
 
 The whole logic handling process is explained below:
 
-1. Data is recieved from the listening port.  The listening port is set to 8080 by default.
-2. Beego begins processing the requested data after the request reachs port 8080
+1. Data is received from the listening port.  The listening port is set to 8080 by default.
+2. Beego begins processing the requested data after the request reaches port 8080
 3. The Context object is initialized. WebSocket requests will be set as Input after the request method has been verified as a standard method (get, post, put, delete, patch, options, head) in order to protect from hostile attack.
 4. If the `BeforeRouter` filter has been set by the user it is executed. If `responseWriter` has output data while executing this filter the request will be finished and the supervise checking step (see item 21) will be performed next.
 5. Start handling of static files. If the requested url matches the prefix set by `StaticDir`, the `ServeFile` in the `http` package will be used to handle the static file requests.
